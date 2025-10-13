@@ -6,6 +6,7 @@ const f1=async()=>{
     jsondata.users.forEach((data)=>{
         console.log("name:",data.firstName);
         console.log("email:",data.email);
+        console.log("ip address:", data.ipAddress);
         console.log("mac Address:",data.macAddress);
     })
     }

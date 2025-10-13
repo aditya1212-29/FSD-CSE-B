@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htm fetch</title>
+</head>
+<body>
+    <style>
+        table{
+            background-color: aliceblue;
+            color:aquamarine;
+            
+
+        }
+    </style>
+    <h1>List of users</h1>
+    <table>
+        <tr>
+            <th>FirstNae</th>
+            <th>Email</th>
+            <th>ipAddress</th>
+            <th>MacAddress</th>
+        </tr>
+        <tbody>
+        <script>
+                    const url="https://dummyjson.com/users"
+        const f1=async()=>{
+            try{
+            const res=await fetch(url);
+            const jsondata=await res.json();
+            jsondata.users.forEach((data)=>{
+                const row=document.createElement("tr");
+                const col1=document.createElement("td");
+                col1.innerText=data.firstName;
+                row.appendChild(col1);
+
+                const col2=document.createElement("td");
+                col2.innerText=data.emial;
+                row.appendChild(col2);
+
+                const col3=document.createElement("td");
+                col3.innerText=data.ipAddress;
+                row.appendChild(col3);
+
+                const col4=document.createElement("td");
+                col4.innerText=data.macAddress;
+                row.appendChild(col4);
+
+                const tbody=document.querySelector('tbody');
+                tbody.appendChild(row);     
+
+                // console.log("name:",data.firstName);
+                // console.log("email:",data.email);
+                // console.log("ip address:", data.ipAddress);
+                // console.log("mac Address:",data.macAddress);
+            })
+            }
+            catch(err){
+                console.error("error:",err.message);
+            }
+        }
+        </script>
+      </tbody>
+    </table>
+</body>
+</html>
